@@ -12,7 +12,7 @@ metadata:
   creationTimestamp: null
   labels:
     appstudio.openshift.io/application: opendatahub-builds
-    appstudio.openshift.io/component: trustyai-vllm-orchestrator-gateway
+    appstudio.openshift.io/component: trustyai-vllm-orchestrator-gateway-ci
     pipelines.appstudio.openshift.io/type: build
   name: trustyai-vllm-orchestrator-gateway-on-push
   namespace: open-data-hub-tenant
