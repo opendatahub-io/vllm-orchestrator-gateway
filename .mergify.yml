@@ -1,0 +1,38 @@
+pull_request_rules:
+  - name: Backport merged PRs from main → incubation
+    conditions:
+      - base=main
+      - merged
+      - author!=mergify[bot]
+      - repository-full-name=opendatahub-io/vllm-orchestrator-gateway
+    actions:
+      backport:
+        branches:
+          - incubation
+        ignore_conflicts: true
+        labels:
+          - bot/sync-incubation
+        title: "[incubation] {{ title }}"
+        body: |
+          Backport of #{{ number }} — {{ title }}
+
+          This PR cherry-picks the changes from `main` into `incubation`.
+
+  - name: Backport merged PRs from incubation → stable (skip .tekton-only changes)
+    conditions:
+      - base=incubation
+      - merged
+      - repository-full-name=opendatahub-io/vllm-orchestrator-gateway
+      - files~=^(?!\.tekton/).+
+    actions:
+      backport:
+        branches:
+          - stable
+        ignore_conflicts: true
+        labels:
+          - bot/sync-stable
+        title: "[stable] {{ title | replace('[incubation] ', '') | replace('Backport to incubation: ', '') | replace('Backport to incubation:', '') }}"
+        body: |
+          Backport of #{{ number }} — {{ title }}
+
+          This PR cherry-picks the changes from `incubation` into `stable`.
