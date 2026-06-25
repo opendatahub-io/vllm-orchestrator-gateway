@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 anyhow = "1.0.94"
-axum = "0.7.9"
+axum = "0.8.0"
 regex = "1.11.1"
 reqwest = { version = "0.12.12", default-features = false, features = ["json", "native-tls"] }
 serde = { version = "1.0.215", features = ["serde_derive"] }
