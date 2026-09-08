@@ -2,7 +2,7 @@ name: Sync branch stable
 on:
   push:
     branches:
-      - incubation
+      - main
 
 jobs:
   sync-branches:
@@ -17,7 +17,7 @@ jobs:
         uses: tretuna/sync-branches@1.4.0
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          FROM_BRANCH: "incubation"
+          FROM_BRANCH: "main"
           TO_BRANCH: "stable"
       - name: Add labels
         if: ${{ steps.pull.outputs.PULL_REQUEST_NUMBER != '' }}
