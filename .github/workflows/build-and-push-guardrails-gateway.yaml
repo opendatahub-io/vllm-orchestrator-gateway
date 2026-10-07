@@ -41,11 +41,11 @@ jobs:
           mode: minimum
           count: 1
           labels: "ok-to-test, lgtm, approved"
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
         if: env.BUILD_CONTEXT == 'ci'
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
         if: env.BUILD_CONTEXT == 'main' ||  env.BUILD_CONTEXT == 'tag'
       #
       # Print variables for debugging
