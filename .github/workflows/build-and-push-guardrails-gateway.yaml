@@ -35,7 +35,7 @@ jobs:
         run: echo "BUILD_CONTEXT=main" >> $GITHUB_ENV
       #
       # Run checkouts
-      - uses: mheap/github-action-required-labels@v4
+      - uses: mheap/github-action-required-labels@v5
         if: env.BUILD_CONTEXT == 'ci'
         with:
           mode: minimum
