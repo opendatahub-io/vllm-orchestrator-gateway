@@ -87,7 +87,7 @@ jobs:
         run: docker push ${{ env.IMAGE_NAME }}:$TAG
 
       # Leave comment
-      - uses: peter-evans/find-comment@v3
+      - uses: peter-evans/find-comment@v4
         name: Find Comment
         if:  env.BUILD_CONTEXT == 'ci'
         id: fc
